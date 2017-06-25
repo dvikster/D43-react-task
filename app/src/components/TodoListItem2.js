@@ -3,8 +3,7 @@ import classnames from 'classnames'
 
 let interval;
 
-
-export default class TodoListItem1 extends Component {
+export default class TodoListItem extends Component {
     static propTypes = {
         todo: PropTypes.object.isRequired,
         completeTodo: PropTypes.func.isRequired
@@ -28,7 +27,7 @@ export default class TodoListItem1 extends Component {
         this.props.startTimer(this.props.todo.id);
         interval = setInterval(() => {
             this.props.updateTimer(this.props.todo.id);
-        }, 1000);
+         }, 1000);
     }
 
 
@@ -38,9 +37,6 @@ export default class TodoListItem1 extends Component {
     }
 
 
-     
-
-      
 
     formatSeconds = (seconds) => {
         let hours = Math.floor(seconds / 3600);
@@ -54,40 +50,32 @@ export default class TodoListItem1 extends Component {
 
     render(){
         const { todo, timerActive, timerTodo } = this.props
-
         return (
-                <div>
-
 
             <div className={ 'todolist-task ' + classnames ({
-                completed: todo.completed
-            })}>
-             {(!timerActive || timerTodo === todo.id) && (
+            completed: todo.completed
+        })}>
+        {(!timerActive || timerTodo === todo.id) && (
                  <input className="checkbox"
-                     type="checkbox"
-                     checked={todo.completed}
-                     onChange={this.taskCompleteClick}
-                 />
-             )}
+                        type="checkbox"
+                        checked={todo.completed}
+                        onChange={this.taskCompleteClick}
+                    />
+        )}
                 <span className="task" > {todo.text}</span>
 
 
                 <span>Total time is {this.formatSeconds(todo.total)}</span>
-            {(!timerActive || timerTodo === todo.id) && (
-                <button className='timer-button'
-                    disabled={timerActive && timerTodo !== todo.id}
-                    onClick={timerActive ? this.handleStopClick : this.handleStartClick}
-                >{timerActive ? 'Stop' : 'Start'}</button>
-            )}
-            {(!timerActive || timerTodo === todo.id) && (
-                <a onClick={this.deleteClick} href="#" className={'close-task'}>X</a>
-            )}
-           </div>
-
-            </div>
-        )
-    }
+        {(!timerActive || timerTodo === todo.id) && (
+<button className='timer-button'
+disabled={timerActive && timerTodo !== todo.id}
+onClick={timerActive ? this.handleStopClick : this.handleStartClick}
+>{timerActive ? 'Stop' : 'Start'}</button>
+)}
+{(!timerActive || timerTodo === todo.id) && (
+<a onClick={this.deleteClick} href="#" className={'close-task'}>X</a>
+)}
+</div>
+)
 }
-/**
- * Created by OSS PC 6 on 6/23/2017.
- */
+}

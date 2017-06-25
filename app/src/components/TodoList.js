@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import TodoListItem from './TodoListItem'
 
 
-
 export default class TodoList extends Component {
 
     static propTypes = {
@@ -35,12 +34,8 @@ export default class TodoList extends Component {
         }
     }
 
-
     render() {
         const { todos, actions, timerActive, timerTodo  } = this.props
-
-
-
         const taskCount = todos.reduce((count, todo) =>  todo.completed ? count + 1 : count, 0)
 
 
@@ -48,9 +43,6 @@ export default class TodoList extends Component {
             <div className="todolist">
 
                 <div className="todolist-wrapper">
-
-
-
 
                     {todos.map(todo =>
                         <TodoListItem  key={todo.id} todo={todo} {...actions} timerActive={timerActive} timerTodo={timerTodo}/>

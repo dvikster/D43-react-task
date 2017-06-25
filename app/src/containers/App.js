@@ -2,18 +2,19 @@ import React from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import TopSection from '../components/TopSection'
-import TodoList from '../components/TodoList'
+import TodoList2 from '../components/TodoList2'
 import Footer from '../components/Footer'
-import SortableComponent from '../components/ListAll.js'
+
+
 import * as TodoActions from '../actions'
+
 
 const App = props => (
     <div>
         <TopSection addTodo={props.actions.addTodo} />
-        <TodoList {...props} />
+        <TodoList2 {...props} />
         <Footer {...props} clearCompleted={props.actions.clearCompleted}/>
-
-        <SortableComponent/>
+        
     </div>
 )
 
@@ -40,4 +41,6 @@ export default connect(
 )(App)
 
 
+// import SortableComponent from '../components/ListAll'
 
+       {/*<SortableComponent/>*/}
