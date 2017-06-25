@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import TodoListItem1 from './TodoListItem1'
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
-import { Draggable, Droppable } from 'react-drag-and-drop'
+// import { Draggable, Droppable } from 'react-drag-and-drop'
 
+const todoArray =[1,2,3,4];
 
 const SortableItem = SortableElement(({value}) =>  <div>{value}</div>);
 
@@ -15,6 +16,8 @@ const SortableList = SortableContainer(({items}) => {
 </div>
 );
 });
+
+
 
 export default class TodoList extends Component {
 
@@ -44,9 +47,14 @@ export default class TodoList extends Component {
     }
 
 
-       state = {
-               items: [1,2,3,4],
-                };
+constructor(props) {
+        super(props);
+        this.state = {
+             items: todoArray,
+        }
+    }
+    
+
 
 
         onSortEnd = ({oldIndex, newIndex}) => {
@@ -66,18 +74,7 @@ export default class TodoList extends Component {
 
         return (
             <div className="todolist">
-            <div>
-            <div>
-                <Draggable type="fruit" data="banana"><li>Banana</li></Draggable>
-                <Draggable type="fruit" data="apple"><li>Apple</li></Draggable>
-                <Draggable type="fruit" data="silver"><li>Silver</li></Draggable>
-            </div>
-            <Droppable
-            types={['fruit']}
-                onDrop={this.onDrop.bind(this)}>
-                <ul className="Smoothie"></ul>
-            </Droppable>
-        </div>
+        
 
                 <div className="todolist-wrapper">
 

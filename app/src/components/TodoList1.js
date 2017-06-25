@@ -3,6 +3,7 @@ import TodoListItem from './TodoListItem'
 import List from './DragAndDrops.js'
 
 
+const  colors =['Red', 'Green', 'Blue', 'Yellow', 'Black', 'White', 'Orange'];
 
 export default class TodoList1 extends Component {
 
@@ -38,7 +39,7 @@ export default class TodoList1 extends Component {
 constructor(props) {
         super(props);
         this.state = {
-            colors: ['Red', 'Green', 'Blue', 'Yellow', 'Black', 'White', 'Orange']
+            colors: colors
         }
     }
     
